@@ -24,7 +24,7 @@ def doh(name:str,type:str='A',server:str="223.5.5.5")->List[str]:
 def check_hex(file_path:str, sha512hex:str)->bool:
     if not path.exists(file_path): return False
     with open(file_path, 'rb') as f:
-        return sha512(f.read()).hexdigest() == sha512hex
+        return sha512(f.read(1024*1024)).hexdigest() == sha512hex
 
 # file downloader
 def downloader(
@@ -85,7 +85,7 @@ def ask_wget_avaliable():
     logger.info("Checking if the system has WGET support...")
     if path.exists('wget.exe' if platform=='win32' else 'wget'): 
         wgetStatus = WgetAvaliableStatus.local
-        wget_path = ('.\wget.exe' if platform=='win32' else './wget')
+        wget_path = ('.\\wget.exe' if platform=='win32' else './wget')
         return
     path_list = environ['PATH'].split(';' if platform=='win32' else ':')
     for PATH in path_list:

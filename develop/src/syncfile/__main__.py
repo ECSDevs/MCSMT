@@ -16,7 +16,7 @@ Syncfile v0.3.1.2
 Easy transport from everywhere.
 
 Usage:
-  {PYTHON} -m filesync.<module> [arg1] [arg2] ...
+  {PYTHON} -m syncfile.<module> [arg1] [arg2] ...
 
 Modules:
     - client
